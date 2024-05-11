@@ -1,8 +1,10 @@
 # Retail Industry ETL Project
 
 A retail store having multiple csv files each one represents a table in the source system and they needed to load this data into data warehouse which consists of :
-1. Fact table: ![alt text](image.png)
-2. Dimension tables: ![alt text](image-1.png)
+1. Fact table:
+   ![alt text](image.png)
+2. Dimension tables:
+   ![alt text](image-1.png)
 
 ## 1- The first business requirement:
 - Need data mart that display each transaction for each customer based on type of customer “citizen” or “foreign”  with information of it information of product and information of stock  which buy  with name file 
