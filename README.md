@@ -16,12 +16,12 @@ A retail store having multiple csv files each one represents a table in the sour
 ## 2- The second business requirement:
 -  read data mart “RETAIL_DATA_MART” Then answer the following business need: 
 • Display count of all transaction for each customer for each store 
-     - After loading the “RETAIL_DATA_MART” as sequential file and use a copy stage to use it to answer the various business questions, aggregator was used to count rows after grouping by customerid and stockid, the result is loaded into a sequential file "Count_Cust"
+- - After loading the “RETAIL_DATA_MART” as sequential file and use a copy stage to use it to answer the various business questions, aggregator was used to count rows after grouping by customerid and stockid, the result is loaded into a sequential file "Count_Cust"
 
 • Display max profit made by which customer type. Named DataMart “ACTIVATION_SALES_DATA_MART” 
 • Based on which customer make profit , give them Bouns Equation = Annual_Incomek$* SpendingScore*100
-     - By reusing the copy stage created earlier, aggregator was used to group by customer type and count transactions for each type, another aggregator was used to get the maximum value of this count for each type, sort stage is used to sort the values in descending order and then getting the head of the result to get only one record with the customer type and transactions count in “ACTIVATION_SALES_DATA_MART” after using a copy stage.
+- - By reusing the copy stage created earlier, aggregator was used to group by customer type and count transactions for each type, another aggregator was used to get the maximum value of this count for each type, sort stage is used to sort the values in descending order and then getting the head of the result to get only one record with the customer type and transactions count in “ACTIVATION_SALES_DATA_MART” after using a copy stage.
+- - using the copy stage we just created, the result was joined with the customer table sequential file on the customer type to get the customers who belong to the max profit customer type and then a transformer was used to make a stage variable which calculate the bonus and use it in a new column and load the result into a new sequintial file "Customer_Bonus".
 
-     - using the copy stage we just created, the result was joined with the customer table sequential file on the customer type to get the customers who belong to the max profit customer type and then a transformer was used to make a stage variable which calculate the bonus and use it in a new column and load the result into a new sequintial file "Customer_Bonus".
 ![alt text](imgs/image-2.png)
 ![alt text](imgs/Untitled.png)
